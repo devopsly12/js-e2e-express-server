@@ -4,6 +4,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+
 steps:
 - task: NodeTool@0
   inputs:
@@ -27,9 +28,8 @@ steps:
     targetFolder: '$(Build.ArtifactStagingDirectory)'
   displayName: 'Copy project files'
 
-- task: PublishPipelineArtifact@1
+- task: Npm@1
   inputs:
-    artifactName: e2e-server
-    targetPath: '$(Build.ArtifactStagingDirectory)'
-    publishLocation: 'pipeline'
-  displayName: 'Publish npm artifact'
+    command: publish
+    publishRegistry: useFeed
+    publishFeed: testfeed
