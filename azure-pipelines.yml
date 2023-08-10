@@ -27,9 +27,10 @@ steps:
        public/*
     targetFolder: '$(Build.ArtifactStagingDirectory)'
   displayName: 'Copy project files'
+
 - task: Npm@1
   inputs:
-    command: 'publish'
+    command: 'install'
     workingDir: '.'
-    publishRegistry: 'useFeed'
-    publishFeed: '79153133-3e91-49a4-8d53-801031287fc8/098bf076-4fea-4e95-b406-14e55c966ce2'
+    customRegistry: 'useFeed'
+    customFeed: '79153133-3e91-49a4-8d53-801031287fc8/688c6563-5ac9-4d2f-ac91-2026989e38ea'
